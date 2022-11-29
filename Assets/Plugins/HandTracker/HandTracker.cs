@@ -22,6 +22,9 @@ public class HandTracker : MonoBehaviour
     private static extern void _initializeHandTracker();
     [DllImport("__Internal")]
     private static extern string _getHandJoints(int jointElection);
+    //Enable allowUnsafeCode if you want to pass an array of floats instead
+    //  to avoid a long string copy every frame
+    //private unsafe static extern float * _getHandJoints(int jointElection);
 #endif
 
     protected bool trackerIsLive;
@@ -71,7 +74,7 @@ public class HandTracker : MonoBehaviour
         jointResults.Clear();
         string resultStr = _getHandJoints((int)jointElection);
         string[] resultJointsArr = resultStr.Split("|"[0]);
-        foreach(string resultJoint in resultJointsArr)
+        foreach (string resultJoint in resultJointsArr)
         {
             string[] positionTuple = resultJoint.Split(","[0]);
             float x = 1 - float.Parse(positionTuple[0]);

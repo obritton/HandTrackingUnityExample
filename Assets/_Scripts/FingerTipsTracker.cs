@@ -52,9 +52,6 @@ public class FingerTipsTracker : HandTracker
             }
         }
 
-        //Vector3 screenSpaceWristPos = new Vector3(jointResults[(int)WristDefJoint.wrist].x * xScreenScalar,
-        //                                     jointResults[(int)WristDefJoint.wrist].y,
-        //                                     handDistanceFromCamera);
-        //wristTransform.position = Camera.main.ScreenToWorldPoint(screenSpaceWristPos); 
+        //TODO: Get Fingertip joints and use them to push a rigidbody around
     }
 }

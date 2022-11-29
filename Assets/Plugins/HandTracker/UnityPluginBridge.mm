@@ -29,11 +29,11 @@ char* convertNSStringToCString(const NSString* nsString){
 }
 
 void _initializeHandTracker(){
-    [[UnityPlugin shared] initializeHandTracker];
+    [[HandJointsServer shared] initializeHandTracker];
 }
 
 char* _getHandJoints(int jointElection){
-    NSString* result = [[UnityPlugin shared] getHandJointsWithJointElection:jointElection];
+    NSString* result = [[HandJointsServer shared] getHandJointsWithJointElection:jointElection];
     return convertNSStringToCString(result);
 }
 
